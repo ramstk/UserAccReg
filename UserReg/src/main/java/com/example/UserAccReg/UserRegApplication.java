@@ -18,12 +18,12 @@ public class UserRegApplication {
 		SpringApplication.run(UserRegApplication.class, args);
 	}
 	
-	@Bean
-	public CommandLineRunner setup(UserRegRepo userRegRepo) {
-		return (args) -> {
-			userRegRepo.save(new UserRegistration("Ram",  "STK",  "RamSTK", "ramstk@test.com", "Test@123" , "Test@123", true));
-		
-			
-		};
-	}
+//	@Bean
+//	public CommandLineRunner setup(UserRegRepo userRegRepo) {
+//		return (args) -> {
+//			userRegRepo.save(new UserRegistration("Ram",  "STK",  "RamSTK", "ramstk@test.com", "Test@123" , "Test@123", true));
+//		
+//			
+//		};
+//	}
 }

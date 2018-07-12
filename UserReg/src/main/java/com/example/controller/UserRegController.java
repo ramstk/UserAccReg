@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.exception.UserRegException;
 import com.example.model.Response;
 import com.example.model.UserRegistration;
-import com.example.service.UserRegService;
+import com.example.service.UserRegistrationImpl;
 import com.example.util.PayloadValidator;
 
 /**
@@ -30,11 +29,10 @@ import com.example.util.PayloadValidator;
 public class UserRegController {
 	
 	@Autowired
-	private UserRegService userRegService;
+	private UserRegistrationImpl userRegService;
 	
 	@Autowired
-	
-	public void userRegService(UserRegService userRegService){
+	public void userRegService(UserRegistrationImpl userRegService){
 	    this.userRegService=userRegService;
 	}
 	

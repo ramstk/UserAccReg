@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 import com.example.model.UserRegistration;
 import com.example.repository.UserRegRepo;
 
-@Service("userRegService")
+@Service
 public class UserRegistrationImpl implements UserRegService{
 
 
 	@Autowired
 	private UserRegRepo userRegRepo;
-	
+	@Autowired
+    public UserRegistrationImpl(UserRegRepo userRegRepo) { 
+      this.userRegRepo = userRegRepo;
+    }
 	@Override
 	public List<UserRegistration> getAllUserReg() {
 		return userRegRepo.findAll();
