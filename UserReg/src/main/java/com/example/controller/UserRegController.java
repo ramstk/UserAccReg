@@ -26,6 +26,7 @@ import com.example.util.PayloadValidator;
  */
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping(value = "/userReg", produces = "application/json")
 public class UserRegController {
 	
 	@Autowired
@@ -36,13 +37,13 @@ public class UserRegController {
 	    this.userRegService=userRegService;
 	}
 	
-	@RequestMapping(value="/userReg", method=RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<UserRegistration>> getAllUserReg(){
     	
 		return new ResponseEntity<List<UserRegistration>>(userRegService.getAllUserReg(), HttpStatus.OK);
 	}
 	
-    @RequestMapping(value = "/userReg/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<UserRegistration> getUserRegById(@PathVariable("id") long id) throws UserRegException{
     	
     	UserRegistration userReg = userRegService.getUserRegById(id);
@@ -52,7 +53,7 @@ public class UserRegController {
 		return new ResponseEntity<UserRegistration>(userRegService.getUserRegById(id), HttpStatus.OK);
 	}
 
-    @RequestMapping(value = "/userReg/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Response> removeUserReg(@PathVariable("id") long id) throws UserRegException{
     	
     	UserRegistration userReg = userRegService.getUserRegById(id);
@@ -63,7 +64,7 @@ public class UserRegController {
 		return new ResponseEntity<Response>(new Response(HttpStatus.OK.value(), "User has been deleted"), HttpStatus.OK);
 	}
     
-    @RequestMapping(value = "/userReg", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
    	public ResponseEntity<UserRegistration> saveUserReg(@RequestBody UserRegistration payload) throws UserRegException{
     	
     	if (!PayloadValidator.validateCreatePayload(payload)){
@@ -75,7 +76,7 @@ public class UserRegController {
 		return new ResponseEntity<UserRegistration>(userRegService.saveUserReg(payload), HttpStatus.OK);
    	}
     
-    @RequestMapping(value = "/userReg", method = RequestMethod.PATCH)
+    @RequestMapping( method = RequestMethod.PATCH)
    	public ResponseEntity<UserRegistration>  updateUserReg(@RequestBody UserRegistration payload) throws UserRegException{
     	
     	UserRegistration userReg = userRegService.getUserRegById(payload.getId());

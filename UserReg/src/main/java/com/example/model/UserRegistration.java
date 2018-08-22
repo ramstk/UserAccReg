@@ -8,16 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import org.springframework.beans.factory.annotation.Required;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 /**
  * @author RAM
  *
  */
+@SuppressWarnings("deprecation")
 @Entity
 public class UserRegistration {
 
@@ -25,31 +24,25 @@ public class UserRegistration {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private long id;
-	@NotNull
-	@NotBlank
+
 	@Column(name = "fName")
+
 	private String fName;
-	@NotNull
-	@NotBlank
+
 	@Column(name = "lName")
 	private String lName;
-	@NotNull
-	@NotBlank
+
 	@Column(name = "userID", nullable = false, unique = true)
 	private String userID;
-	@NotNull
-	@NotBlank
+
 	@ValidEmail
 	@Column(name = "eMail")
 	@NotEmpty(message = "Please provide an e-mail")
 	private String eMail;
-	@NotNull
-	@NotBlank
-	@Size(min = 8)
+
 	@Column(name = "password")
 	private String password;
-	@NotNull
-	@NotBlank
+
 	@Column(name = "cPassword")
 	private String cPassword;
 	@Column(name = "completed")
@@ -89,9 +82,7 @@ public class UserRegistration {
 		return id;
 	}
 
-	@Required
-	@NotNull
-	@NotBlank
+	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -100,9 +91,7 @@ public class UserRegistration {
 		return fName;
 	}
 
-	@Required
-	@NotNull
-	@NotBlank
+	
 	public void setfName(String fName) {
 		this.fName = fName;
 	}

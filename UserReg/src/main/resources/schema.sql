@@ -1,3 +1,3 @@
 
-CREATE TABLE UserRegistration(id BIGINT PRIMARY KEY AUTO_INCREMENT, fName VARCHAR2, lName VARCHAR2, userID VARCHAR2, eMail VARCHAR2, password VARCHAR2, cPassword VARCHAR2, completed Boolean);
-
+/*insert into USER_REGISTRATION (ID ,C_PASSWORD,COMPLETED,E_MAIL,F_NAME , L_NAME,PASSWORD,USERID)  values (2,'Test@1234','True','ramstk@test.com','Ram','STK','Test@1234','ramstk2');
+*/

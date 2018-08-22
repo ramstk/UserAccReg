@@ -10,7 +10,7 @@ public class PayloadValidator {
 		return true;
 	}
 	public static boolean validatePassCpass(UserRegistration userReg) {
-		if (userReg.getPassword() != userReg.getcPassword()) {
+		if (!userReg.getPassword().equals(userReg.getcPassword())) {
 			return false;
 		}
 		return true;
